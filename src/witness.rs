@@ -36,6 +36,7 @@ impl<F: Field> WitnessEnv<F> {
 
 /// The compiled circuit.
 //#[derive(Serialize, Deserialize)]
+#[derive(Debug, Clone)]
 pub struct CompiledCircuit<B: Backend> {
     pub circuit: CircuitWriter<B>,
 }

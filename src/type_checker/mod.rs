@@ -37,7 +37,7 @@ where
     pub typ: Ty,
 }
 
-#[derive(Debug, Serialize, Deserialize, PartialEq, Eq, Hash)]
+#[derive(Clone, Debug, Serialize, Deserialize, PartialEq, Eq, Hash)]
 pub struct FullyQualified {
     /// Set to `None` if the function is defined in the main module.
     pub module: Option<UserRepo>,
@@ -63,7 +63,7 @@ impl FullyQualified {
 }
 
 /// The environment we use to type check a noname program.
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct TypeChecker<B>
 where
     B: Backend,

@@ -20,7 +20,7 @@ pub mod fn_env;
 pub mod writer;
 
 //#[derive(Debug, Serialize, Deserialize)]
-#[derive(Debug)]
+#[derive(Clone, Debug)]
 pub struct CircuitWriter<B>
 where
     B: Backend,

@@ -26,7 +26,7 @@ impl BackendField for R1csBn254Field {}
 
 #[derive(Default, Clone, Copy, Debug, PartialEq, Eq, Hash, Serialize, Deserialize)]
 pub struct CellVar {
-    index: usize,
+    pub index: usize,
     pub span: Span,
 }
 
@@ -190,21 +190,21 @@ where
 }
 
 /// R1CS backend with bls12_381 field.
-#[derive(Clone)]
+#[derive(Clone, Debug)]
 pub struct R1CS<F>
 where
     F: BackendField,
 {
     /// Constraints in the r1cs.
-    constraints: Vec<Constraint<F>>,
+    pub constraints: Vec<Constraint<F>>,
     witness_vector: Vec<Value<Self>>,
     debug_info: Vec<DebugInfo>,
     /// Record the public inputs for reordering the witness vector
-    public_inputs: Vec<CellVar>,
+    pub public_inputs: Vec<CellVar>,
     /// Record the private inputs for checking
     private_input_cell_vars: Vec<CellVar>,
     /// Record the public outputs for reordering the witness vector
-    public_outputs: Vec<CellVar>,
+    pub public_outputs: Vec<CellVar>,
     finalized: bool,
 }
 
